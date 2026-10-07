@@ -1,0 +1,33 @@
+﻿# Main commands used in the project
+
+# Validate BAM
+<JAVA17> -jar picard.jar ValidateSamFile ^
+I=CEUTrio.HiSeq.WGS.b37.NA12878.20.21.bam ^
+MODE=SUMMARY
+
+# Alignment summary
+<JAVA17> -jar picard.jar CollectAlignmentSummaryMetrics ^
+-I CEUTrio.HiSeq.WGS.b37.NA12878.20.21.bam ^
+-O alignment_metrics.txt ^
+-VALIDATION_STRINGENCY LENIENT
+
+# BAM -> SAM
+<JAVA17> -jar picard.jar SamFormatConverter ^
+-I CEUTrio.HiSeq.WGS.b37.NA12878.20.21.bam ^
+-O sample.sam ^
+-VALIDATION_STRINGENCY LENIENT
+
+# Insert size
+<JAVA17> -jar picard.jar CollectInsertSizeMetrics ^
+-I CEUTrio.HiSeq.WGS.b37.NA12878.20.21.bam ^
+-O insert_size_metrics.txt ^
+-M 0.5 ^
+-VALIDATION_STRINGENCY LENIENT
+
+# Coverage
+<JAVA17> -jar picard.jar CollectWgsMetrics ^
+-I CEUTrio.HiSeq.WGS.b37.NA12878.20.21.bam ^
+-O wgs_metrics.txt ^
+-R b37_chr20_chr21.fasta ^
+-INTERVALS subset.interval_list ^
+-VALIDATION_STRINGENCY LENIENT
