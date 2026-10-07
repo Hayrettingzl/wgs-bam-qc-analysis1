@@ -1,0 +1,33 @@
+# Sequencing data
+*.bam
+*.bai
+*.sam
+*.cram
+*.crai
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+# Reference genomes and indexes
+*.fa
+*.fasta
+*.fna
+*.fa.gz
+*.fasta.gz
+*.fai
+*.dict
+
+# Downloaded tools
+*.jar
+
+# Temporary / generated files
+*.tmp
+*.temp
+*.log
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
